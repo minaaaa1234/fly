@@ -1,0 +1,119 @@
+@charset "utf-8";
+* {margin:0; padding:0;}
+	li {list-style-type:none;}
+		a {text-decoration:none;color:#000;}
+	img, fieldset {border:0;}
+	img , input { vertical-align:middle;}
+	address,em {font-style:normal;}
+	* {margin:0; padding:0;}
+	li {list-style-type:none;}
+		a {text-decoration:none;color:#000;}
+	img, fieldset {border:0;}
+	img , input { vertical-align:middle;}
+	address,em {font-style:normal;}
+		
+#wrapper{width:980px;margin:0 auto;}
+#header{height: 100px;}
+.logo {margin-left: 15px;}
+.country li{display: inline;float: left;margin-top: 30px;margin-left: 5px;}
+#header h1{float: left;text-align: center;}
+ul.login li{display: inline;line-height: 100px;font-size: 25px;}
+ul.login :hover{font-weight: bold;}
+.login{margin-left: 800px;}
+#category{clear: both;margin-left: 10px;overflow: hidden;}
+
+#category li {
+  display: inline-block; /* 메인 카테고리들을 수평으로 배치 */
+}
+#category li a{font-size: 20px;color: #042D56;font-weight: bold;}
+#wrapper {
+  position: relative; /* 상대 위치 설정 */
+}
+
+#category ul.sub {
+  display: none; /* 초기에는 하위 카테고리를 숨김 */
+  position: absolute; /* 절대 위치 설정 */
+  background-color:#B4C3FF; /* 배경색 설정 */
+  width:500px; /* 가로 길이 설정 */
+  padding: 10px; /* 내부 여백 설정 */
+  color: white; /* 글자색 설정 */
+  z-index: 100;
+}
+#category li:nth-child(5):hover {
+  background-image: url('../images/Asset\ 31.png'); 
+  background-size: cover; /*사이즈에 맞게 조정*/
+  background-position: center; 
+}
+
+#category li:hover ul.sub {
+  display: block; /* 메인 카테고리에 마우스를 올렸을 때 하위 카테고리 표시 */
+}
+#category li ul.sub a:hover{color: white; font-style: 16px;}
+#container{overflow: hidden;margin-top: 50px;}
+h1.fevent {margin-left: 380px;margin-top: 80px;}
+.event h3 img{float: left;margin-right: 40px;}
+.eimg:nth-of-type(1) {margin-left: 62px;}
+.eimg img {
+			transition: transform 0.3s ease; /* 이미지 확대 효과를 부드럽게 전환합니다 */
+		}
+		.eimg img:hover {
+			transform: scale(1.1); /* 마우스를 올렸을 때 이미지를 1.2배 확대합니다 */
+		}
+.ement span{font-weight: bold;font-size: 20px;}
+.ement {margin-left: 330px;}
+.more {margin-left: 800px;}
+.youtube {clear: both;}
+.eventli {display: inline-block; margin-left: 130px; margin-top: 20px;}
+.eventli li{display: inline;margin-right: 160px;}
+.eventli li:nth-child(3) {margin-right: 0;margin-left: -30px;}
+.eventli li a{font-size: 18px;}
+.eventli li a span{font-size: 20px;font-weight: bold;}
+.youtube{}
+.fyoutube{margin-left: 360px;margin-top: 70px;}
+.yment {margin-left: 330px;font-size: 18px;}
+.yment span {font-size: 20px; font-weight: bold;}
+.tvmore {position: relative; left:760px;}
+iframe:nth-of-type(1){margin-left: 35px;}
+
+.wrap img {margin-left: 370px;margin-top: 80px;}
+.title_wrapp {font-weight: bold;font-size: 20px;}
+.title_wrap {font-weight: bold;font-size: 20px;display: inline-block;}
+.info_wrap {display: inline-block;}
+.mapa {position: relative; top:-320px; left:480px;}
+.location{width: px; height: 500px;}
+.info_container {}
+.info_container p{padding-bottom: 10px;}
+.wrap{margin-left: 40px;}
+.info_wrap p.big{font-size: 50px;font-weight: bold;}
+.sns li{display: inline; margin-right: 10px;}
+.sns ul{margin-top:100px;margin-left: 332px;margin-bottom: 100px;}
+#foottop {background-color: #042D56;}
+#foottop {
+  display: flex;
+}
+#btn_agree {color:white;}
+.field_wrap {
+			display: flex;
+			align-items: center;
+			gap: 10px; /* 각 입력 필드 사이의 간격을 조절합니다 */
+		}
+		.box {
+			flex: 1; /* 모든 box가 동일한 너비를 가지게 합니다 */
+		}
+		.input_sms {
+			width: 100%;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+.box{display: inline-block;}
+#footbottom {
+background-image: url('../images/dg.jpg');
+background-size:cover;
+background-position:center;
+overflow: hidden;}
+#footbottom li{display: inline;}
+#footbottom ul{float: left;margin: 30px;}
+#footbottom li a{font-weight: bold; font-size: 20px;margin-bottom: 30px;}
+#footbottom h6 {position: relative; top:-100px; left:820px;}
+.asset {margin: 30px;float: left;}
+.address {clear: both;margin-left: 30px;}
