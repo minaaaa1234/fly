@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> 플라이 성형외과 메인페이지 </title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<script>
+	$(function(){
+// 슬라이더
+			let indexNum = 0;
+
+			function moveNextSlide() {
+            indexNum++;
+            let lastIndexNum = $("#imgslide li").last().index() + 1; // 마지막 li를 검사하기 위한 것.
+            if (lastIndexNum == indexNum) {
+                $("#imgslide").css({ left: 0 });
+                indexNum = 1;
+            }
+            let leftNum = indexNum * -1000 + "px";
+            $("#imgslide").animate({ left: leftNum });
+        }
+        setInterval(moveNextSlide, 5000);
+		$(".btn_prev").click(function(){
+				indexNum--;
+                if(indexNum < 0){
+					indexNum = $("#imgslide li").length-1;
+                    $("#imgslide").css({left:-1000*indexNum});
+					indexNum--;
+                }
+                let leftNum = indexNum * 1000; 
+                $("#imgslide").animate({left: -leftNum});
+		})
+		$(".btn_next").click(function(){
+			indexNum++;
+				let lastIndexNum = $("#imgslide li").last().index()+1;//마지막 li를 검사하기 위한 것.
+                if (lastIndexNum==indexNum){
+					$("#imgslide").css({left:0})
+					indexNum=1;
+				}
+				let leftNum = indexNum * -1000 + "px"; 
+                $("#imgslide").animate({left: leftNum});
+		})
+		//팝업창
+		$(".close").click(function(){
+			$("#popup").hide();
+		});
+		// category li mouseenter 이벤트 추가
+		$("#category li").mouseenter(function(){
+        $(this).find("ul.sub").stop(true, true).slideDown(400);
+    });
+
+    // category li mouseleave 이벤트 추가
+    $("#category li").mouseleave(function(){
+        $(this).find("ul.sub").stop(true, true).slideUp(10);
+    });
+	$("#doctor a").mouseenter(function(){
+		$(this).css({backgroundColor:"rgb(216, 183, 183)",fontWeight:"bold"})
+	})
+	$("#doctor a").mouseleave(function(){
+		$(this).css({backgroundColor:"",fontWeight:""})
+	})
+	$(".rv a").hover(
+                function() {
+                    $(this).prev("img").addClass("dark");
+                },
+                function() {
+                    $(this).prev("img").removeClass("dark");
+                }
+            );
+	})
+</script>
+</head>
+<body>
+	<div id="popup">
+		<div class="close">닫기</div>	
+		<img src="images/popup.jpg" alt="팝업 이미지">
+	</div>
+<div id="wrapper">
+  <div id="header"> 
+    <ol class="country">
+        <li><a href="#"><img src="images/korea.png" alt="한국" /></a></li>
+        <li><a href="#"><img src="images/japan.png" alt="일본" /></a></li>
+        <li><a href="#"><img src="images/china.png" alt="중국" /></a></li>
+        <li><a href="#"><img src="images/eng.png" alt="미국" /></a></li>
+    </ol>
+    
+	<h1 class="logo"><a href="index.html"><img src="images/logo.jpg" alt="플라이 성형외과 로고" /></a></h1>
+
+<!-- li 아래잇는 애들 display none 하다가 hover 하면 display block하면 뿅하고 나타님 -->
+	<ul class="login">
+		<li><a href="#">Log in</a> / </li>
+		<li><a href="#">Sign in</a></li>
+	</ul>
+
+	<ul id="category">
+		<li class="m1"><a href="#">플라이소개</a> |
+			<ul class="sub">
+				<li><a href="#">병원 소개</a> | </li>
+				<li><a href="#">의료진 소개</a> | </li>
+				<li><a href="#">둘러보기</a> | </li>
+				<li><a href="#">진료안내</a> | </li>
+				<li><a href="#">오시는 길</a></li>
+			</ul></li>
+		</li>
+		<li class="m1"><a href="#">코성형 </a> |
+			<ul class="sub">
+				<li><a href="#">유형별 코성형</a> | </li>
+				<li><a href="#">낮은코</a> | </li>
+				<li><a href="#">복코</a> | </li>
+				<li><a href="#">코 끝수술</a> | </li>
+				<li><a href="#">코 재수술</a></li>
+			</ul>
+		<li class="m1"><a href="#">눈성형 </a> |
+			<ul class="sub">
+				<li><a href="#">유형별 눈성형</a> | </li>
+				<li><a href="#">자연유착</a> | </li>
+				<li><a href="#">매몰법/절개법</a> | </li>
+				<li><a href="#">눈매교정</a> | </li>
+				<li><a href="#">눈밑지방재배치</a></li>
+			</ul></li>
+		<li class="m1"><a href="#">이마성형 </a> |
+			<ul class="sub">
+				<li><a href="#">이마거상술</a></li>
+			</ul>
+		</li>
+		<li class="m1"><a href="#">윤곽성형 </a>| 
+			<ul class="sub">
+				<li><a href="#">안면윤곽 4종</a> | </li>
+				<li><a href="#">사각턱</a> | </li>
+				<li><a href="#">광대</a> | </li>
+				<li><a href="#">턱 끝</a> | </li>
+				<li><a href="#">이마</a> | </li>
+				<li><a href="#">윤곽</a> | </li>
+				<li><a href="#">재수술</a></li>
+			</ul>
+		</li>
+		<li class="m1"><a href="#">가슴성형</a> | 
+			<ul class="sub">
+				<li><a href="#">처진가슴</a> | </li>
+				<li><a href="#">가슴재수술</a> | </li>
+				<li><a href="#">유두성형</a></li>
+			</ul></li>
+		<li class="m1"><a href="#">남자성형</a> | 
+			<ul class="sub">
+				<li><a href="#">남자 눈성형</a> | </li>
+				<li><a href="#">남자 코성형</a></li>
+			</ul></li>
+		<li class="m1"><a href="#">쁘띠</a> | </li>
+		<li class="m1"><a href="#">상담&예약</a> | </li>
+		<li class="m1"><a href="#">전후사진/후기</a></li>
+	</ul>
+  </div><!-- header -->
+
+  <div id="container">
+	<div id="parent">
+			<div class="btn btn_prev"><img src="images/back1 (17).png" alt=""></div>
+			<div class="btn btn_next"><img src="images/back1 (18).png" alt=""></div>
+		<div id="imgslide">
+			<ul>
+				<li><img src="images/banner (2).png" alt="슬라이드 첫번째 사진"></li> <!-- width:1000px -->
+				<li><img src="images/slide2-01.jpg" alt="슬라이드2"></li>
+				<li><img src="images/slide2-02.jpg" alt="슬라이드3"></li>
+				<li><img src="images/slide2-03.jpg" alt="슬라이드4"></li>
+				<li><img src="images/banner (2).png" alt="슬라이드 첫번째 사진"></li>
+			</ul>
+		</div>
+	</div>
+	<div class="event">
+		<h1 class="fevent"><img src="images/Asset 7.png" alr="flyevent"></h1>
+		<p class="ement">오직, <span>플라이</span>에서만 만나볼 수 있는 <span>이벤트!</span></p>
+		<h2 class="more"><a href=""><img src="images/Asset 13.png" alt="더 보기" /></a></h1>
+			<div class="eimg">
+				<h3><a href="#"><img src="images/Asset 9.png" alt="이벤트1" /></a></h3>
+				<h3><a href="#"><img src="images/Asset 10.png" alt="이벤트2" /></a></h3>
+				<h3><a href="#"><img src="images/Asset 11.png" alt="이벤트3" /></a></h3>
+			</div>
+		<div class="eventli">
+		<ul>
+			<li><a href="">플라이 <span>자연유착</span></a></li>
+			<li><a href="">플라이 <span>리프팅</span></a></li>
+			<li><a href="">플라이 <span>더 많은 이벤트</span></a></li>
+		</ul>
+		</div>
+	</div><!-- event -->
+	<div class="youtube">
+		<h1 class="fyoutube"><img src="images/Asset 8.png" alt="이벤트로고"></h1>
+		<p class="yment"><span>영상</span>을 통해 다양한 정보 얻을 수 있는 <span>기회!</span></p>
+		<h2 class="tvmore"><a href="https://www.youtube.com/@Marblepstv"><img src="images/Asset 15.png" alt="더 보기" /></a></h1>
+			<iframe width="300" height="200" src="https://www.youtube.com/embed/4jx5UlK2YtM" title="매부리코 수술하고 마기꾼에서 마해자로 변신한 사연!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<iframe width="300" height="200" src="https://www.youtube.com/embed/do_ipaZ1t0s" title="자연유착 팩트체크! 첫 쌍수는 무조건 자연유착?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<iframe width="300" height="200" src="https://www.youtube.com/embed/lINwmx5P4R4" title="[눈재수술+첫 코수술] 흔한 케이스인 만큼 정확하게 알고 가자!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	</div>
+	<!-- 리뷰 -->
+	<div class="review">
+		<h1 class="freview"><img src="images/Asset 40.png" alt="리뷰로고"></h1>
+			<ul class="rv">
+				<li><img src="images/Asset 38.png" alt="전후사진"><a href="#">more view+</a></li>
+				<li><img src="images/Asset 39.png" alt="수술후기"><a href="#">more view+</a></li>
+			</ul>
+	</div>
+
+	<div class="location">
+		<div class="info_container">
+			<div class="wrap"><img src="images/Asset 17.png" alt="flylocation">
+				<div class="title_wrapp">
+					<p>전화상담/예약</p>
+				</div>
+				<div class="info_wrap">
+					<p class="big">02.123.4567</p>
+					<p>전화주시면 친절하고 빠른상담 도와드립니다.</p>
+				</div>
+			</div>
+	
+			<div class="wrap">
+				<div class="title_wrap">
+					<p>진료시간</p>
+				</div>
+				<div class="info_wrap">
+					<div class="txt">
+						<p class="day"><span >월&nbsp;-&nbsp;목> AM 10:00 ~ PM 7:00</span></p>
+					</div>
+					<div class="txt">
+						<p class="day"><span>금요일> AM 10:00 ~ PM 8:00 (야간)</span></p>
+					</div>
+					<div class="txt">
+						<p class="day"><span>토요일> AM 10:00 ~ PM 5:00</span></p>
+					</div>
+				</div>
+			</div>
+	
+			<div class="wrap">
+				<div class="title_wrap">
+					<p>이메일</p>
+				</div>
+				<div class="info_wrap">
+					<p class="email">flyflastic@gmail.com</p>
+				</div>
+			</div>
+	
+			<div class="wrap">
+				<div class="title_wrap">
+					<p>오시는 길</p>
+				</div>
+				<div class="info_wrap">
+					<p>수인분당선<br>수원시청역 2번 출구 앞, 벽산그랜드코아 5층</p>
+				</div>
+			</div>
+			<div class="mapa" style="font:normal normal 400 12px/normal dotum, sans-serif; width:500px; height:332px; color:#333; position:relative"><div style="height: 300px;"><a href="https://map.kakao.com/?urlX=507065.0&amp;urlY=1044799.0&amp;itemId=716681126&amp;q=%EC%97%A0%EB%B9%84%EC%94%A8%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8%20%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%90%EC%9C%A1%EC%84%BC%ED%84%B0%20%EC%88%98%EC%9B%90%EC%9D%B8%EA%B3%84%EC%A0%90&amp;srcid=716681126&amp;map_type=TYPE_MAP&amp;from=roughmap" target="_blank">
+			<img class="map" src="http://t1.daumcdn.net/roughmap/imgmap/f403b7cd1dd4f6217733a8914564e855a11880e1af2fbc4944fbd16b48afde48" width="498px" height="298px" style="border:1px solid #ccc;"></a></div><div style="overflow: hidden; padding: 7px 11px; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 0px 0px 2px 2px; background-color: rgb(249, 249, 249);"><a href="https://map.kakao.com" target="_blank" style="float: left;"><img src="//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/logo_kakaomap.png" width="72" height="16" alt="카카오맵" style="display:block;width:72px;height:16px"></a><div style="float: right; position: relative; top: 1px; font-size: 11px;"><a target="_blank" href="https://map.kakao.com/?from=roughmap&amp;srcid=716681126&amp;confirmid=716681126&amp;q=%EC%97%A0%EB%B9%84%EC%94%A8%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8%20%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%90%EC%9C%A1%EC%84%BC%ED%84%B0%20%EC%88%98%EC%9B%90%EC%9D%B8%EA%B3%84%EC%A0%90&amp;rv=on" style="float:left;height:15px;padding-top:1px;line-height:15px;color:#000;text-decoration: none;">로드뷰</a><span style="width: 1px;padding: 0;margin: 0 8px 0 9px;height: 11px;vertical-align: top;position: relative;top: 2px;border-left: 1px solid #d0d0d0;float: left;"></span><a target="_blank" href="https://map.kakao.com/?from=roughmap&amp;eName=%EC%97%A0%EB%B9%84%EC%94%A8%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8%20%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%90%EC%9C%A1%EC%84%BC%ED%84%B0%20%EC%88%98%EC%9B%90%EC%9D%B8%EA%B3%84%EC%A0%90&amp;eX=507065.0&amp;eY=1044799.0" style="float:left;height:15px;padding-top:1px;line-height:15px;color:#000;text-decoration: none;">길찾기</a><span style="width: 1px;padding: 0;margin: 0 8px 0 9px;height: 11px;vertical-align: top;position: relative;top: 2px;border-left: 1px solid #d0d0d0;float: left;"></span><a target="_blank" href="https://map.kakao.com?map_type=TYPE_MAP&amp;from=roughmap&amp;srcid=716681126&amp;itemId=716681126&amp;q=%EC%97%A0%EB%B9%84%EC%94%A8%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8%20%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%90%EC%9C%A1%EC%84%BC%ED%84%B0%20%EC%88%98%EC%9B%90%EC%9D%B8%EA%B3%84%EC%A0%90&amp;urlX=507065.0&amp;urlY=1044799.0" style="float:left;height:15px;padding-top:1px;line-height:15px;color:#000;text-decoration: none;">지도 크게 보기</a></div></div></div>
+		</div>
+	</div>
+	<div class="sns">
+		<ul>
+			<li><a href="#"><img src="images/Asset 18.png" alt="카카오톡"></a></li>
+			<li><a href="#"><img src="images/Asset 19.png" alt="페이스북"></a></li>
+			<li><a href="#"><img src="images/Asset 20.png" alt="블로그"></a></li>
+			<li><a href="#"><img src="images/Asset 21.png" alt="유튜브"></a></li>
+			<li><a href="#"><img src="images/Asset 22.png" alt="인스타그램"></a></li>
+		</ul>
+	</div>
+  </div><!-- container -->
+
+  <div id="doctor"><img src="images/doctor.png" alt="의사 사진">
+	<a href="#">more view +</a>
+</div>
+
+  <div id="footer">
+	<div id="foot">
+	<div id="foottop">
+			<div class="field_wrap">
+				<h5><img src="images/nalge.png" alt="그림로고만"></h5>
+				<div class="box">
+					<input type="text" class="input_sms" placeholder="이름" name="mname" maxlength="10">
+				</div>
+				<div class="box">
+					<input type="text" class="input_sms" placeholder="연락처" name="hp"maxlength="11">
+				</div>
+				<div class="box">
+					<input type="text" class="input_sms" placeholder="상담내용" name="contents">
+				</div>
+				<div class="box">
+					<p id="btn_agree">개인정보취급방침 <input type="checkbox"/></p>
+				</div>
+				<div class="sangdam"><a href="#"><img src="images/button.png" alt="상담신청"></a></div>
+				</div>
+			</div>
+	</div>
+	<div id="footbottom">
+		<div>
+			<a href="index.html">
+				<img class="asset" src="images/Asset 28.png" alt="플라이글자로고">
+			</a>
+		</div>
+		<ul class="bott">
+			<li><a href="#">이용약관</a> | </li>
+			<li><a href="#">개인정보취급방침</a> | </li>
+			<li><a href="#">병원소개</a> | </li>
+			<li><a href="#">오시는길</a> | </li>
+			<li><a href="#">온라인 상담</a></li>
+		</ul>
+		<div class="address">
+			경기 수원시 팔달구 권광로 146 벽산그랜드코아 401호 | 대표자 : 유민아 | 사업자등록번호:1234-56789<br>
+			TEL . 1234-5678 | FAX . 02-123-5678<br>
+			Copyright &copy; 2024 fly beauty all rights reserved.
+		</div>
+		<h6>
+			<img src="images/suni.png" alt="서울대로고">
+		</h6>
+	</div><!--footbottom-->
+	
+</div><!-- wrapper -->
+  
+
+
+</body>
+</html>
